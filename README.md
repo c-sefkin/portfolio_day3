@@ -2,11 +2,11 @@
 
 <a href="https://hidden-sea-4180.herokuapp.com/" target="#">Live Portfolio on Heroku</a>
 
-By Jesse James (<a href="https://github.com/jrjamespdx" target="#">GitHub</a>)
+By Chris Sefkin (<a href="https://github.com/c-sefkin" target="#">GitHub</a>)
 
 @ Epicodus Programming School, Portland, OR
 
-GNU General Public License, version 3 (see below). Copyright (c) 2015 Jesse R. James.
+GNU General Public License, version 3 (see below). Copyright (c) 2015 Chris Sefkin.
 
 ### Description
 
@@ -16,7 +16,7 @@ A web app for displaying a personal portfolio.
 
 ### Author(s)
 
-Jesse James
+Chris Sefkin
 
 ### Setup
 
@@ -24,7 +24,7 @@ This app was written in `Rails '4.2.3'`.
 
 Clone this repo with
 ```console
-> git clone https://github.com/jrjamespdx/portfolio_rails.git
+> git clone https://github.com/c-sefkin/portfolio_day3.git
 ```
 
 Install gems:
@@ -38,7 +38,6 @@ Create database
 ```console
 > rake db:create
 > rake db:migrate
-> rake db:seed
 ```
 
 Run tests
@@ -55,8 +54,8 @@ Start App:
 
 #### Temp Admin/User Accounts
 
-> email:  admin@admin.com
-> password: epicodus
+> email:  test@test.com
+> password: badpassword
 
 > email: user@user.com
 > password: epicodus
@@ -101,7 +100,7 @@ int | string | string | datetime   | datetime   | int
 
 
 ### License ###
-Copyright  (C)  2015  Jesse R. James
+Copyright  (C)  2015  Chris Sefkin
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
