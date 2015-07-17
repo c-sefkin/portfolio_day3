@@ -1,0 +1,50 @@
+<!-- <div class="container"> -->
+  <div class="row">
+    <div class="col-sm-4" id="skills_index">
+      <h1>Skills Index</h1>
+
+      <% if @skills.any? %>
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <ul>
+              <% @skills.each do |skill| %>
+                <li><%= link_to skill.name, skill_path(skill) %> |
+                  <%= link_to "E", edit_skill_path(skill), class: "btn btn-xs btn-primary"  %> |
+                  <%= link_to "D", skill_path(skill), class: "btn btn-xs btn-danger", :data => {:confirm => "Are you sure?", :method => "delete"} %>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <ul>
+              <% @skills.each do |skill| %>
+                <li><%= link_to skill.name, skill_path(skill) %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        <% else %>
+          <ul>
+            <% @skills.each do |skill| %>
+              <li><%= link_to skill.name, skill_path(skill) %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      <% else %>
+        <p>No skills have been added.</p>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <p>
+            <%= link_to "Add a Skill", new_skill_path %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-sm-4 center_text">
+      <p><%= link_to "See References", references_path, class: "pad_button btn btn-primary", id: "ref_link", :remote => true %></p>
+    </div>
+    <div class="col-sm-4" id="contact_info">
+      <%= render 'layouts/contact_info' %>
+    </div>
+  </div>
+<!-- </div> -->

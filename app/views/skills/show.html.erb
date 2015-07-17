@@ -1,0 +1,52 @@
+<h1><%= @skill.name %></h1>
+
+<h3>Description</h3>
+<p><%= @skill.description %></p>
+
+<h3>Experience</h3>
+<p><%= @skill.experience %></p>
+
+
+<br>
+
+<h3>Projects</h3>
+<% if @skill.projects.any? %>
+  <% if user_signed_in? %>
+    <% if current_user.admin? %>
+      <ul>
+        <% @skill.projects.each do |project| %>
+          <li><%= link_to project.name, skill_project_path(@skill, project) %> |
+          <%= link_to "E", edit_skill_project_path(@skill, project), class: "btn btn-xs btn-primary"  %> |
+          <%= link_to "D", skill_project_path(@skill, project), class: "btn btn-xs btn-danger", :data => {:confirm => "Are you sure?", :method => "delete"} %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <ul>
+        <% @skill.projects.each do |project| %>
+          <li><%= link_to project.name, skill_project_path(@skill, project) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% else %>
+    <ul>
+      <% @skill.projects.each do |project| %>
+        <li><%= link_to project.name, skill_project_path(@skill, project) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% else %>
+  <p>Currently there are no projects associated with this skill.</p>
+<% end %>
+
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <p><%= link_to "Add a Project", new_skill_project_path(@skill) %></p>
+    <hr>
+    <p><%= link_to "Edit", edit_skill_path(@skill), class: "btn btn-primary" %> - <%= link_to "Delete", skill_path(@skill), class: "btn btn-danger", :data => {:confirm => "Are you sure?", :method => 'delete'} %></p>
+  <% end %>
+<% end %>
+
+<% content_for :navbar do %>
+  <li><%= link_to "Back", skills_path %></li>
+<% end %>

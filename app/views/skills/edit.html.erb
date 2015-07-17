@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <h1>Edit Skill</h1>
+
+    <%= render 'form' %>
+
+    <% content_for :navbar do %>
+      <li><%= link_to "Back", skill_path(@skill) %></li>
+    <% end %>
+  <% else %>
+    <h1>ACCESS DENIED</h1>
+  <% end %>
+<% else %>
+  <h1>ACCESS DENIED</h1>
+<% end %>

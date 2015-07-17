@@ -1,0 +1,40 @@
+ @import 'bootstrap-sprockets';
+ @import 'bootstrap';
+
+#main_content {
+  border: 1px transparent;
+  border-radius: 15px;
+  background-color: #89cff0;
+}
+
+#user_nav {
+  padding-right: 5px;
+  padding-left: 5px;
+
+}
+
+#contact_info {
+  // border: 1px solid black;
+  padding: auto 5px;
+  // border-radius: 15px;
+}
+
+#skills_index {
+  // border: 1px solid black;
+  padding: auto 5px;
+  // border-radius: 15px;
+  min-height: 200px;
+  height: 100%;
+}
+
+.text_type {
+  font-weight: bold;
+}
+
+.center_text {
+  text-align: center;
+}
+
+.pad_button {
+  margin-top: 5%;
+}

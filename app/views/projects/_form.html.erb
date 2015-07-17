@@ -1,0 +1,19 @@
+<% content_for(:back_nav, ) %>
+
+<%= render 'layouts/errors', :object => @project %>
+
+<%= form_for [@skill, @project] do |f| %>
+  <%= f.label :name %>
+  <br>
+  <%= f.text_field :name %>
+  <br><br>
+  <%= f.label :description %>
+  <br>
+  <%= f.text_area :description, size: '50x6' %>
+  <br><br>
+  <%= f.label :github_link %>
+  <br>
+  <%= f.text_field :github_link %>
+  <br><br>
+  <%= f.submit %>
+<% end %>

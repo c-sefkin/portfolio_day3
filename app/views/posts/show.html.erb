@@ -1,0 +1,37 @@
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @post.author %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<p>
+  <%= link_to "View Comments", post_comments_path(@post) %>
+</p>
+
+<hr>
+
+
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %> |
+  <%= link_to 'Add a Comment', new_post_comment_path(@post), id: "comment_link", remote: true %>
+<% elsif user_signed_in? %>
+  <%= link_to 'Back', posts_path %> |
+  <%= link_to 'Add a Comment', new_post_comment_path(@post), id: "comment_link", remote: true %>
+<% else %>
+  <%= link_to 'Back', posts_path %> |
+  <%= link_to 'Add a Comment', new_post_comment_path(@post) %>
+<% end %>
+
+<% content_for :navbar do %>
+  <li><%= link_to "Back", posts_path %></li>
+<% end %>

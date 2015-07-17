@@ -1,0 +1,9 @@
+<h1>New Comment</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', post_path(@post) %>
+
+<% content_for :navbar do %>
+  <li><%= link_to "Back", post_comments_path(@post) %></li>
+<% end %>

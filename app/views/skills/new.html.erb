@@ -1,0 +1,21 @@
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <h1>Create a new Skill</h1>
+
+    <%= render 'skills/form' %>
+
+    <% content_for :navbar do %>
+      <li><%= link_to "Back", skills_path %></li>
+    <% end %>
+
+  <% else %>
+
+    <h1>ACCESS DENIED</h1>
+
+  <% end %>
+
+<% else %>
+
+  <h1>ACCESS DENIED</h1>
+  
+<% end %>

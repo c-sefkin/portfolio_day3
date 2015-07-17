@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <h1>Edit the Project</h1>
+
+    <%= render 'form' %>
+
+
+    <% content_for :navbar do %>
+      <li><%= link_to "Back", skill_project_path(@skill, @project) %></li>
+    <% end %>
+  <% else %>
+    <h1>ACCESS DENIED</h1>
+  <% end %>
+<% else %>
+  <h1>ACCESS DENIED</h1>
+<% end %>

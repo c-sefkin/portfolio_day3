@@ -1,0 +1,24 @@
+<% if user_signed_in? && current_user.admin? %>
+  <ul style="list-style-type: none"><h4><%= link_to comment.author, post_comment_path(comment.post, comment) %></h4>
+    <li>Submitted:  <%= comment.created_at %></li>
+    <li>Comment:  <%= comment.body %></li>
+    <li><%= link_to 'Edit', edit_post_comment_path(comment.post, comment) %> |
+        <%= link_to 'Destroy', post_comment_path(comment.post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  </ul>
+  <hr>
+<% elsif user_signed_in? %>
+  <ul style="list-style-type: none"><h4><%= link_to comment.author, post_comment_path(comment.post, comment) %></h4>
+    <li>Submitted:  <%= comment.created_at %></li>
+    <li>Comment:  <%= comment.body %></li>
+    <% if current_user.email == comment.author %>
+      <li><%= link_to 'Edit', edit_post_comment_path(comment.post, comment) %></li>
+    <% end %>
+  </ul>
+  <hr>
+<% else %>
+  <ul style="list-style-type: none"><h4><%= link_to comment.author, post_comment_path(comment.post, comment) %></h4>
+    <li>Submitted:  <%= comment.created_at %></li>
+    <li>Comment:  <%= comment.body %></li>
+  </ul>
+<% end %>
